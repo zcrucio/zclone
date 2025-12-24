@@ -18,7 +18,7 @@ Namespaces of arbitrary depth are supported (GitLab, self-hosted Git, GitHub).
 
 ## Installation
 ```bash
-git clone https://github.com/zcrucio/zclone \
+git clone https://github.com/vcrucio/zclone \
   ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zclone
 ```
 

@@ -20,17 +20,17 @@ Configuration:
                     Default: \$HOME/projects
 
 Examples:
-  zclone https://github.com/zcrucio/zclone.git
+  zclone https://github.com/vcrucio/zclone.git
 EOF
 }
 
 function zclone() {
-  local repo_url="$1"
-
-  if [[ "$repo_url" == "--help" || "$repo_url" == "-h" ]]; then
+  if [[ "$1" == "--help" || "$1" == "-h" ]]; then
     _zclone_help
     return 0
   fi
+
+  local repo_url="$1"
 
   if [[ -z "$repo_url" ]]; then
     echo "Error: repository URL is required"
@@ -67,9 +67,11 @@ function zclone() {
 
   if [[ -d "$target" ]]; then
     echo "Repository already exists: $target"
+    cd $target
     return 0
   fi
 
   git clone "$repo_url" "$target"
+  cd $target
 }
 
